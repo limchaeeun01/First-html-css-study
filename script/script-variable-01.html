@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var msg = "가자미";
+        console.log(">>>> debug - ", msg);
+        msg = true;
+
+        const data = "lim"
+        console.log(">>>> debug - ", data);
+
+        console.log(">>>> 스크립트 변수 타입 <<<<");
+
+        let userAge = 10;
+        console.log(">>>> debug type check - ", typeof userAge);
+        
+        let userObj = {
+            name : "lim", age : 24, isMarried : false
+        }
+
+        console.log("userObj type - ", typeof userObj);
+        console.log("userObj name - ",  userObj.name);
+        console.log("userObj age - ",  userObj.age);
+        console.log("userObj isMarried - ",  userObj.isMarried);
+        let userAry = [userObj, userObj, userObj, userObj];
+        for(let idx=0; idx<userAry.length; idx++){
+            let user = userAry[idx];
+            console.log(user);
+        }
+
+        for(let key in userAry){
+            console.log("user - key : ", key, "data = ", userAry[key]);
+        }
+    </script>
+</body>
+</html>
