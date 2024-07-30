@@ -1,0 +1,9 @@
+#parent{
+    display: flex;
+    flex-direction: row;
+    border: 3px solid red;
+}
+.chile{
+    flex: 1 0 auto;
+    border: 3px solid blue;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* internal style*/
+    </style>
+    <!-- external style-->
+     <link rel="stylesheet" href="../css/tect.css"/>
+</head>
+<body>
+    <div id = parent>
+        <div class = child style="color: blue;">box01</div>
+    </div>
+
+    <div>
+        <label for="agree">동의하시겠습니까?
+            <input type="checkbox" name="agree" id="agree" value="동의">
+            
+        </label>
+        <button id="agreeBtn">send</button>
+        <span id="Result"></span>
+    </div>
+
+    <script>
+        window.onload = function(){
+            window.alert("ㅎㅇ");
+        }
+
+        $(document).ready(function(){
+            $("#agreeBtn").click(function(){
+                var onOff = $("agree");
+                console.log("onOff >>>>>>>>>", onOff);
+                console.log("onOff >>>>>>>>>", onOff.is(":checked"));
+                if(onOff.is(":checked")){
+                    $("#Result").html("동의하셨습니다");
+                } else{
+                    $("#Result").html("미동의하셨습니다");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

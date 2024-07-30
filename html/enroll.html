@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/enroll.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <header>사용자 정보 입력</header>
+
+        <form>
+            <div class="form-group">
+                <label>ID : </label>
+                <input type="text" 
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <label>이름 : </label>
+                <input type="text" 
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <label>암호 : </label>
+                <input type="password" 
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <label>주소 : </label>
+                <input type="text" 
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <label>전화번호 : </label>
+                <input type="tel" 
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <label>본인확인 힌트 : </label>
+                <select>
+                    <option value="1">태어난 고향은?</option>
+                    <option value="2">제일 좋아하는 음식은?</option>
+                    <option value="3">어머니 성함은?</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>본인확인 답변 : </label>
+                <input type="text" 
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <label>결혼 여부 : </label>
+                <input type="radio"  name="marriage"/>
+                <label>기혼</label>
+                <input type="radio"  name="marriage"/>
+                <label>미혼</label>
+            </div>
+            <div class="form-group">
+                <label>취미 : </label>
+                <input type="radio"  name="hobby"/>
+                <label>컴퓨터</label>
+                <input type="radio"  name="hobby"/>
+                <label>문화</label>
+                <input type="radio"  name="hobby"/>
+                <label>스포츠</label>
+                <input type="radio"  name="hobby"/>
+                <label>기타</label>
+            </div>
+            <div class="form-group">
+                <label>비고 : </label>
+                <textarea cols="40" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <button onclick="handleComplete()">작성완료</button>
+                <button onclick="handleReset()">다시쓰기</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function handleComplete() {
+            alert("작성이 완료되었습니다.");
+        }
+
+        function handleReset() {
+            alert("폼을 초기화합니다.");
+            document.getElementById("enrollForm").reset();
+        }
+    </script>
+</body>
+</html>
