@@ -1,0 +1,52 @@
+/* p3 {
+    color: green;
+    background-color: yellow;
+} */
+
+a:link {
+    color: blue;
+    text-decoration: underline;
+}
+a:visited{
+    color: red;
+}
+/* 클릭 */
+a:active{
+    background-color: yellow;
+}
+/* 마우스 올리기 */
+a:hover{
+    text-decoration: overline;
+}
+
+div.div01{
+    border : 1px dashed red;
+    width: 450px;
+    padding : 5px;
+}
+
+div.div01:hover{
+    background-color: yellow;
+}
+
+div.div02{
+    border : 1px dashed green;
+    width: 450px;
+    height: 100px;
+    padding : 5px;
+}
+
+div.div02:hover{
+    width: 200px;
+    height: 200px;
+    color: red;
+    transition: all 1.5s linear 0.5s;
+}
+
+input:focus{
+    background-color: red;
+}
+
+input:checked + div.hint{
+    background-color: gray;
+}

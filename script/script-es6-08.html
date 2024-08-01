@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <button id="this-btn">BUTTON</button>
+
+
+
+    <script>
+        // const 상수는 할당된 값을 변경할 수 없지만
+        //객체 또는 배열로 선언된 객체의 속성 및 값은 변경할 수 있음
+        const obj = {
+            num : 10,
+            text : 'hi'
+        };
+        obj.num = 20;
+        console.log("변경된 값 >>> ", obj.num);
+
+        console.log("배열로 선언하고 배열 요소를 추가");
+        const ary = [];
+        ary.push(10); ary.push(20); ary.push(30);
+        console.log(ary);
+        console.log("");
+
+        console.log("화살표 함수(Arrow Function)");
+        let func01 = function(){
+
+        }
+        function func02(){
+
+        }
+
+        let func03 = () => {
+
+        }
+
+        () => 10 + 20;
+
+        const func04 = num => num * 10;
+
+        const foo = {
+            name : "bar",
+            age : 23,
+            printThis(){
+                console.log(this); //foo
+                const innerFunc = () => {
+                    return this;   //foo
+                }
+                console.log(innerFunc());
+            }
+        };
+
+        foo.printThis();
+
+        console.log("setTimeout() >>> this Server send Event(SSE)");
+        const bao = {
+            name : "bar",
+            age : 23,
+            getThisArrowFunc : function() {
+                console.log(this);
+                setTimeout( () => {
+                    console.log(this);
+                }, 2000);
+            },
+            getThisFunc : function() {
+                console.log(this);
+                setTimeout(function(){
+                    console.log(this);
+                }, 2000);
+            }
+        };
+        bao.getThisArrowFunc();
+        bao.getThisFunc();
+
+        console.log("addEventListner 에서의 this");
+        const btn = document.getElementById("this-btn");
+        console.log(typeof btn);
+        console.log(btn);
+        
+        /*
+        btn.addEventListener("click", () => {
+            console.log("arrow function this", this.innerText); //window
+        });
+       
+
+        btn.addEventListener("click", function() {
+            console.log(this === btn);
+            console.log("arrow function this", this.innerText); //this-btn
+        });
+         */
+
+        console.log("Enhanced Object Literal == 향상된 객체 리터럴");
+        console.log("기존 객체 정의 방식");
+        const testObj = {
+            language : 'javascript',
+            coding(){
+                console.log("Hello Javascript")
+            }
+        };
+
+        console.log(testObj.language);
+        console.log(testObj.coding());
+
+        console.log("객체를 정의하는 축약 문법 >>> ");
+        let language = 'javascript';
+        const myComponent = {
+            template : '<p>My Component</p>'
+        }
+        const testObj02 = {
+            language, //language = language
+            component  : {
+                myComponent //myComponent = myComponent
+            }
+        };
+
+        console.log(testObj02.language);
+        console.log(testObj02.component.myComponent);
+
+        const testObj03 = {
+            a : 10,
+            b : 20
+        }
+        const testObj04 = {...testObj03};
+       
+
+    </script>
+</body>
+</html>

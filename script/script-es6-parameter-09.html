@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function kdt(param01=1, param02={}, param03='kdt'){
+            console.log(param01, param02, param03);
+        }
+        kdt();
+        kdt(50, {name : 'gege'}, null);
+
+        console.log("||를 이용한 기본값 할당");
+        function perInfo(height, weight, age){
+            var height = height || 180;
+            var weight = weight || 78;
+            var age = age || 24;
+            console.log(height, weight, age);
+        }
+        perInfo();
+        perInfo(178, 76, 20);
+        perInfo(178, 76, null);
+
+        console.log("");
+        console.log("Optional Channing - 객체속성값의 유효성을 체크할 수 있음");
+        console.log("Optional Channing - 대상 : null, undefined");
+
+        const userInfo = {
+            name : {
+                firstName : 'Lim',
+                lastName : 'Chaen'
+            },
+            address : {
+                city : 'Seoul',
+                postCode : 'XXXX'
+            }
+        }
+
+        const postCode = userInfo.address && userInfo.address.postCode;
+        
+
+
+
+
+    </script>
+</body>
+</html>
