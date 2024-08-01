@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <h2>input 요소의 값을 취득</h2>
+    <form>
+        <label for="subject">Content</label>
+        <input type="text" name="subject" id="subject">
+        <button id="saveBtn" type="button">SAVE</button>
+    </form>
+    
+    <br/>
+    <hr/>
+    <br/>
+
+    <div>
+        <label for="agree">동의하시겠습니까?
+            <input type="checkbox" name="agree" id="agree" value="동의">
+            
+        </label>
+        <button id="agreeBtn">send</button>
+        <span id="Result"></span>
+    </div>
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <h2>checkbox 요소의 값을 취득</h2>
+    <div>
+        <label for="week">주말에 하고 싶은 일은 무엇입니까?</label><br/>
+        <input type="checkbox" name="all_or_nothing" value="선택해제">선택해제<br/>
+        <input type="checkbox" name="todo" value="야구보기">야구보기
+        <input type="checkbox" name="todo" value="영화보기">영화보기
+        <input type="checkbox" name="todo" value="산책하기">산책하기
+        <input type="checkbox" name="todo" value="드라이브">드라이브
+        <input type="checkbox" name="todo" value="필드나가기">필드나가기
+        <p>
+        <button id="chkBtn">send</button>
+        <span id="chk_result"></span>
+    </div>
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <h2>radio 요소의 값을 취득</h2>
+    <div>
+        <label for="radio_agree">동의하시겠습니까?
+            <input type="radio" name="radio_agree" value="동의">동의
+            <input type="radio" name="radio_agree" value="미동의">미동의
+        </label>
+        <button id="radioBtn">RadioButton</button>
+        <span id="radio_result"></span>
+
+    </div>
+
+
+
+    <script>
+        $(document).ready(function(){
+            $("#saveBtn").click(function(){
+                let subject = $("#subject").val();
+                console.log("input value : ", subject);
+            });
+        });
+        /*
+        window.onload = function(){
+            document.getElementById('saveBtn').onclick = function(){
+                let inputStr = document.getElementById('subject').value;
+                console.log("input value : ", inputStr);
+            }
+        }
+        */
+
+        /*
+        $(document).ready(function(){
+            $("#agreeBtn").click(function(){
+                var onOff = $("#agree");
+                console.log("onOff >>>>>>>>>", onOff);
+                console.log("onOff >>>>>>>>>", onOff.is(":checked"));
+                if(onOff.is(":checked")){
+                    $("#Result").html("<font color='red'>동의하셨습니다.</font>");
+                } else{
+                    $("#Result").html("<font color='red'>미동의하셨습니다.</font>");
+                }
+            });
+        });
+        */
+
+        window.onload = function(){
+            document.getElementById('agreeBtn').onclick = function(){
+                var agreeBtn = document.getElementById("agreeBtn");
+                var agreeCheckbox = document.getElementById("agree");
+                var result = document.getElementById("Result");
+
+                console.log("onOff >>>>>>>>>", agreeCheckbox);
+                console.log("onOff >>>>>>>>>", agreeCheckbox.checked);
+      
+                if(agreeCheckbox.checked){
+                    result.innerHTML = "<font color='red'>동의하셨습니다.</font>";
+                } else{
+                    result.innerHTML = "<font color='red'>미동의하셨습니다.</font>";
+                }
+              
+            }
+        }
+
+        window.onload = function(){
+            document.getElementById('chkBtn').onclick = function(){
+                var checkboxs = document.getElementsByName("todo");
+                var result = document.getElementById("chk_result");
+                let resultStr = "";
+
+                let count = 0;
+
+                for(let i = 0; i < checkboxs.length; i++){
+                    if(checkboxs.item(i).checked){
+                        count++;
+                    }
+                }
+
+                if(count > 0){
+                    resultStr += "당신이 선택한 주말 일정은 : ";
+                    for(let i = 0; i < checkboxs.length; i++){
+                    if(checkboxs.item(i).checked){
+                        resultStr += checkboxs.item(i).value + " ";
+                    }
+                }
+                resultStr += "입니다.";
+                }else{
+                    resultStr += "당신이 선택한 주말 일정은 없습니다.";
+                }
+      
+                result.innerHTML = `<font color='red'>"${resultStr}"</font>`;
+
+                var resetCheckboxs = document.getElementsByName("all_or_nothing");
+                if(resetCheckboxs.item(0).checked){
+                    for(let i = 0; i < checkboxs.length; i++){
+                    checkboxs.item(i).checked = false;
+                }
+                resetCheckboxs.item(0).checked = false;
+              
+                }
+            }
+            
+            
+        }
+
+        window.onload = function(){
+            document.getElementById("radioBtn").onclick = function(){
+                var radios = document.getElementsByName("radio_agree");
+                var result = document.getElementById("radio_result");
+                let resultStr = "";
+                for(let i = 0; i < radios.length; i++){
+                    if(radios.item(i).checked){
+                        resultStr = radios.item(i).value;
+                        break;
+                    }
+                }
+
+                result.innerHTML = `<font color='red'>${resultStr}</font>`;
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
