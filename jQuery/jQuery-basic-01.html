@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+    <h1>jquery를 테스트합니다.</h1>
+    <h1 id="target">jquery를 테스트합니다.</h1>
+    <button id="btn">BUTTON</button>
+    <script>
+        $(document).ready(function(){
+            $('h1').css('color', 'red');
+            $("#target").css('color', 'orange');
+
+            $("#btn").click(function(event){
+
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- 공식 버전 링크 사용 -->
+</head>
+<body>
+    <button id="hideBtn">Hide</button>
+    <button id="showBtn">Show</button>
+    <p>이번 한 주도 고생하셨습니다!</p>
+    <p>화이팅 하시고 이번 주말도 잘 보내세요</p>
+
+    <script>
+        $(document).ready(function(){
+            $("#hideBtn").click(function(){
+                $("p").fadeOut();
+            });
+            $("#showBtn").click(function(){
+                $("p").fadeIn();
+            });
+        });
+    </script>
+</body>
+</html>

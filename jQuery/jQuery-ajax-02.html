@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <button id="ajaxBtn">getData</button>
+    <br/>
+    <hr/>
+    <br/>
+    <table style = "border : 1px solid black" width="400px">
+        <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            $("#ajaxBtn").click(function(){
+                console.log("debug >>> button click");
+                $.ajax({
+                    url : "../content/test.json",
+                    dataType : "json",
+                    success : function(data){
+                        console.log("data type - ", typeof data);
+                        html = "";
+                        for(let i in data){
+                            html += `<tr>`;
+                            html += `<td>${data[i].name}</td>`;
+                            html += `<td>${data[i].age}</td>`;
+                            html += `<td>${data[i].address}</td>`;
+                            html += `</tr>`;
+                        }
+                        $("#tbody").html(html);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
